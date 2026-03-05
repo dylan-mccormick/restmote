@@ -1,7 +1,10 @@
-package to.us.mnmzc.restmote.message.filter;
+package to.us.mnmzc.restmote.model.message.filter;
 
 import java.util.Map;
 
+/**
+ * Evaluates a filter against a set of message attributes. It checks if all conditions of the filter are satisfied by the provided attributes.
+ */
 public final class FilterEvaluator {
     private FilterEvaluator() {}
 

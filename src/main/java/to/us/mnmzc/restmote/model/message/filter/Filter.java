@@ -1,7 +1,9 @@
-package to.us.mnmzc.restmote.message.filter;
+package to.us.mnmzc.restmote.model.message.filter;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -13,8 +15,6 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class Filter {
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Getter final private String id;
     @Getter final private String name;
     @Getter final private List<FilterCondition> conditions;
 }

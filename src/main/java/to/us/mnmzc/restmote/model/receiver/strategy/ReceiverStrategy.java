@@ -1,7 +1,7 @@
-package to.us.mnmzc.restmote.receiver.strategy;
+package to.us.mnmzc.restmote.model.receiver.strategy;
 
-import to.us.mnmzc.restmote.message.Message;
-import to.us.mnmzc.restmote.receiver.ReceiverResult;
+import to.us.mnmzc.restmote.model.message.Message;
+import to.us.mnmzc.restmote.model.receiver.ReceiverResult;
 
 /**
  * Interface for receiver strategies. A receiver strategy is responsible for delivering a message to a receiver.

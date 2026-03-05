@@ -1,4 +1,4 @@
-package to.us.mnmzc.restmote.message.filter;
+package to.us.mnmzc.restmote.model.message.filter;
 
 import com.google.errorprone.annotations.Immutable;
 

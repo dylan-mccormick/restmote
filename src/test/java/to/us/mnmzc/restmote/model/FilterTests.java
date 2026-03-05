@@ -1,12 +1,12 @@
-package to.us.mnmzc.restmote.logic;
+package to.us.mnmzc.restmote.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import to.us.mnmzc.restmote.message.filter.Filter;
-import to.us.mnmzc.restmote.message.filter.FilterCondition;
-import to.us.mnmzc.restmote.message.filter.FilterEvaluator;
-import to.us.mnmzc.restmote.message.filter.FilterOperator;
+import to.us.mnmzc.restmote.model.message.filter.Filter;
+import to.us.mnmzc.restmote.model.message.filter.FilterCondition;
+import to.us.mnmzc.restmote.model.message.filter.FilterEvaluator;
+import to.us.mnmzc.restmote.model.message.filter.FilterOperator;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,0 +1,5 @@
+restmote:
+  bridge-entries:
+    - id: "home-bridge"
+      name: "Home Bridge"
+      auth-token: "receiver-token"
