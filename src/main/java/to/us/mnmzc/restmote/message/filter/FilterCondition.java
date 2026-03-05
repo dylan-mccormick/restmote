@@ -1,7 +1,5 @@
 package to.us.mnmzc.restmote.message.filter;
 
-import jakarta.persistence.Embeddable;
-
 import java.util.Map;
 
 /**
@@ -10,7 +8,6 @@ import java.util.Map;
  * @param operator the operator to be used for the comparison
  * @param expected the expected value to be compared against the actual value in the message attributes
  */
-@Embeddable
 public record FilterCondition(String field, FilterOperator operator, Object expected) {
 
     /**

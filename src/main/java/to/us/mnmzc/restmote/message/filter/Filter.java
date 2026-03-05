@@ -10,14 +10,11 @@ import java.util.List;
  * Messages may pass optional attributes. Each bridge will check its filters against the message attributes.
  * Receivers may also have attributes. Bridges will check the receiver attributes against another set of filters.
  */
-@Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class Filter {
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
-    @Getter private String id;
-    @Getter private String name;
-    @Embedded
-    @Getter private List<FilterCondition> conditions;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Getter final private String id;
+    @Getter final private String name;
+    @Getter final private List<FilterCondition> conditions;
 }
