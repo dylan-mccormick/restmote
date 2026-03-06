@@ -1,9 +1,6 @@
 package to.us.mnmzc.restmote.model.bridge;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.jspecify.annotations.Nullable;
 import to.us.mnmzc.restmote.model.message.filter.Filter;
 
@@ -14,6 +11,7 @@ import java.util.UUID;
  */
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
+@ToString
 public class Bridge {
     @Builder.Default
     @Getter final private String id = UUID.randomUUID().toString();

@@ -1,5 +1,8 @@
 package to.us.mnmzc.restmote.model.message.filter;
 
+import lombok.ToString;
+import org.jspecify.annotations.NonNull;
+
 import java.util.Map;
 
 /**
@@ -19,5 +22,10 @@ public record FilterCondition(String field, FilterOperator operator, Object expe
         Object actual = attributes.get(field);
 
         return operator.test(actual, expected);
+    }
+
+    @Override
+    @NonNull public String toString() {
+        return String.format("%s %s %s", this.field, this.operator.name(), this.expected);
     }
 }

@@ -51,6 +51,6 @@ public class ReceiverRegistry {
      * @return The list of sessions for the given bridge.
      */
     public List<ReceiverSession> getSessionsForBridge(String bridgeId) {
-        return sessions.stream().filter(s -> s.getBridges().stream().anyMatch(b -> b.getId().equals(bridgeId))).toList();
+        return sessions.stream().filter(s -> s.getBridgeIds().stream().anyMatch(b -> b.equals(bridgeId))).toList();
     }
 }

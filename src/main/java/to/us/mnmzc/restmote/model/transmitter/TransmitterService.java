@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The transmitter service keeps track of all the connected transmitters and is responsible for validating transmitters when
@@ -31,27 +32,6 @@ public class TransmitterService {
      */
     public TransmitterService () {
         this.transmitters = new ArrayList<>();
-    }
-
-    /**
-     * Generates a new transmitter with the given API key, name, and bridge IDs. The API key must be valid for the transmitter to be generated.
-     * @param apiKey The API key to use for the transmitter. Must be valid for the transmitter to be generated.
-     * @param name The name of the transmitter.
-     * @param bridgeIds The IDs of the bridges that the transmitter should transmit to.
-     * @return The generated transmitter.
-     * @throws IllegalArgumentException if the API key is invalid.
-     */
-    public Transmitter generateTransmitter(String apiKey, String name, List<String> bridgeIds) {
-        if (!validateApiKey(apiKey)) {
-            log.warn("Attempted to generate transmitter with invalid API key {}", apiKey);
-            throw new IllegalArgumentException("Invalid API key");
-        }
-
-        return Transmitter.builder()
-                .apiKey(apiKey)
-                .name(name)
-                .bridgeIds(bridgeIds)
-                .build();
     }
 
     /**
@@ -81,6 +61,15 @@ public class TransmitterService {
 
         log.warn("Attempted to unregister transmitter with name {}, but it was not found", name);
         throw new IllegalStateException("Transmitter with name " + name + " is not registered");
+    }
+
+    /**
+     * Gets the transmitter with the given ID. The transmitter must be registered for it to be returned.
+     * @param id The ID of the transmitter to get.
+     * @return An Optional containing the transmitter with the given ID if it is registered, or an empty Optional if it is not registered.
+     */
+    public Optional<Transmitter> getTransmitterById(String id) {
+        return transmitters.stream().filter(t -> t.getId().equals(id)).findFirst();
     }
 
 }

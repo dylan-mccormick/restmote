@@ -40,6 +40,7 @@ public class MessageService {
         List<ReceiverSession> toReceive = initiallyFilteredReceivers.stream().filter(r -> message.getReceiverFilter() == null || FilterEvaluator.evaluate(message.getReceiverFilter(), r.getAttributes())).toList();
         log.trace("Message to be sent to {} receivers.", toReceive.size());
 
+        // deliver message and aggregate results
         List<ReceiverResult> results = toReceive.stream().map(r -> r.getStrategy().deliver(message)).toList();
         log.debug("Message delivered to {} receivers. DELIVERED: {}, DROPPED: {}, FAILED: {}", results.size(), results.stream().filter(r -> r == ReceiverResult.DELIVERED).count(), results.stream().filter(r -> r == ReceiverResult.DROPPED).count(), results.stream().filter(r -> r == ReceiverResult.FAILED).count());
     }

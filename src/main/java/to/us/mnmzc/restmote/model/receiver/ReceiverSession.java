@@ -1,9 +1,6 @@
 package to.us.mnmzc.restmote.model.receiver;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.jspecify.annotations.Nullable;
 import to.us.mnmzc.restmote.model.bridge.Bridge;
 import to.us.mnmzc.restmote.model.message.filter.Filter;
@@ -18,10 +15,11 @@ import java.util.UUID;
  */
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
+@ToString
 public class ReceiverSession {
     @Builder.Default
     @Getter private final String id = UUID.randomUUID().toString();
-    @Getter private final List<Bridge> bridges;
+    @Getter private final List<String> bridgeIds;
     @Getter private final Map<String, Object> attributes;
     @Getter private final ReceiverStrategy strategy;
     @Getter @Nullable private final Filter filter;

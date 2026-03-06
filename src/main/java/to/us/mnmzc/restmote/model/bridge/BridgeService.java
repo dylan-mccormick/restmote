@@ -20,7 +20,7 @@ import java.util.List;
 @Slf4j
 public class BridgeService {
 
-    private final List<Bridge> bridges;
+    @Getter private final List<Bridge> bridges;
 
     /**
      * Gets the bridge with the given auth token. This is used to determine which bridge a message should be routed to.

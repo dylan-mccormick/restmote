@@ -2,6 +2,7 @@ package to.us.mnmzc.restmote.model.message;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import org.jspecify.annotations.Nullable;
 import to.us.mnmzc.restmote.model.message.filter.Filter;
 import to.us.mnmzc.restmote.model.transmitter.Transmitter;
@@ -16,11 +17,13 @@ import java.util.Map;
  */
 @Builder
 @Getter
+@ToString
 public class Message {
     private final Transmitter source;
     private final MessagePayloadType payloadType;
     private final JsonNode payload;
-    private final Instant timestamp;
+    @Builder.Default
+    private final Instant timestamp = Instant.now();
     private final Map<String, Object> attributes;
     @Nullable private final Filter receiverFilter;
 }

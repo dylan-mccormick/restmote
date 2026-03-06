@@ -15,22 +15,19 @@ public class ReceiverRegistryTests {
 
     ReceiverSession getSession() {
         return ReceiverSession.builder()
-                .bridges(List.of(Bridge.builder().id("test-bridge").build()))
+                .bridgeIds(List.of("test-bridge"))
                 .build();
     }
 
     ReceiverSession getSessionWithBridge(String bridgeId) {
         return ReceiverSession.builder()
-                .bridges(List.of(Bridge.builder().id(bridgeId).build()))
+                .bridgeIds(List.of(bridgeId))
                 .build();
     }
 
     ReceiverSession getSessionWithMultipleBridges(String... bridgeIds) {
-        List<Bridge> bridges = java.util.Arrays.stream(bridgeIds)
-                .map(id -> Bridge.builder().id(id).build())
-                .toList();
         return ReceiverSession.builder()
-                .bridges(bridges)
+                .bridgeIds(List.of(bridgeIds))
                 .build();
     }
 
@@ -92,7 +89,7 @@ public class ReceiverRegistryTests {
         @DisplayName("registers session with null bridges list")
         void registerNullBridgesList() {
             ReceiverRegistry registry = new ReceiverRegistry();
-            ReceiverSession session = ReceiverSession.builder().bridges(List.of()).build();
+            ReceiverSession session = ReceiverSession.builder().bridgeIds(List.of()).build();
 
             Assertions.assertDoesNotThrow(() -> registry.register(session));
         }
@@ -101,7 +98,7 @@ public class ReceiverRegistryTests {
         @DisplayName("registers session with empty bridges list")
         void registerEmptyBridgesList() {
             ReceiverRegistry registry = new ReceiverRegistry();
-            ReceiverSession session = ReceiverSession.builder().bridges(List.of()).build();
+            ReceiverSession session = ReceiverSession.builder().bridgeIds(List.of()).build();
 
             Assertions.assertDoesNotThrow(() -> registry.register(session));
             Assertions.assertTrue(registry.getSessionsForBridge("any-bridge").isEmpty());
@@ -265,3 +262,4 @@ public class ReceiverRegistryTests {
         }
     }
 }
+

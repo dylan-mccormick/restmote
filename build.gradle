@@ -42,6 +42,9 @@ dependencies {
     errorprone "com.uber.nullaway:nullaway:0.13.1"
 
     implementation "org.jspecify:jspecify:1.0.0"
+
+    implementation(platform("me.paulschwarz:spring-dotenv-bom:5.1.0"))
+    developmentOnly "me.paulschwarz:springboot4-dotenv"
 }
 
 // Spotless configuration for code formatting
