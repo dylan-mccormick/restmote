@@ -1,0 +1,647 @@
+2026-03-06 11:13:12 - t.u.m.restmote.RestmoteApplication - Starting RestmoteApplication using Java 21.0.9 with PID 23007 (/Users/dylan/Desktop/restmote/build/classes/java/main started by dylan in /Users/dylan/Desktop/restmote)
+2026-03-06 11:13:12 - t.u.m.restmote.RestmoteApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-06 11:13:12 - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-06 11:13:12 - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2026-03-06 11:13:13 - o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-06 11:13:13 - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-06 11:13:13 - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-06 11:13:13 - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-06 11:13:13 - o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 416 ms
+2026-03-06 11:13:13 - o.s.b.t.s.DeferredServletContainerInitializers - Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'apiKeyFilter' defined in file [/Users/dylan/Desktop/restmote/build/classes/java/main/to/us/mnmzc/restmote/config/ApiKeyFilter.class]: Failed to instantiate [to.us.mnmzc.restmote.config.ApiKeyFilter]: Constructor threw exception
+2026-03-06 11:13:13 - o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-03-06 11:13:13 - o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2026-03-06 11:13:13 - o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-06 11:13:13 - o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:615)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at to.us.mnmzc.restmote.RestmoteApplication.main(RestmoteApplication.java:10)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:150)
+	at org.springframework.boot.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:110)
+	at org.springframework.boot.tomcat.servlet.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:408)
+	at org.springframework.boot.tomcat.servlet.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:166)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:190)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:164)
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiKeyFilter' defined in file [/Users/dylan/Desktop/restmote/build/classes/java/main/to/us/mnmzc/restmote/config/ApiKeyFilter.class]: Failed to instantiate [to.us.mnmzc.restmote.config.ApiKeyFilter]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1344)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:231)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:185)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:180)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:165)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:97)
+	at org.springframework.boot.web.context.servlet.WebApplicationContextInitializer.initialize(WebApplicationContextInitializer.java:53)
+	at org.springframework.boot.tomcat.servlet.DeferredServletContainerInitializers.onStartup(DeferredServletContainerInitializers.java:55)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4416)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1162)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1158)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:714)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:780)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1162)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1158)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:714)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:201)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:410)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:864)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:435)
+	at org.springframework.boot.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:131)
+	... 13 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [to.us.mnmzc.restmote.config.ApiKeyFilter]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:220)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1338)
+	... 51 common frames omitted
+Caused by: java.lang.IllegalStateException: API key must be set in application properties
+	at to.us.mnmzc.restmote.config.ApiKeyFilter.<init>(ApiKeyFilter.java:30)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:194)
+	... 53 common frames omitted
+2026-03-06 11:15:08 - t.u.m.restmote.RestmoteApplication - Starting RestmoteApplication using Java 21.0.9 with PID 23077 (/Users/dylan/Desktop/restmote/build/classes/java/main started by dylan in /Users/dylan/Desktop/restmote)
+2026-03-06 11:15:08 - t.u.m.restmote.RestmoteApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-06 11:15:08 - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-06 11:15:08 - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2026-03-06 11:15:08 - o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-06 11:15:08 - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-06 11:15:08 - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-06 11:15:08 - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-06 11:15:08 - o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 378 ms
+2026-03-06 11:15:08 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-06 11:15:08 - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:0abbe92f-fa5b-406c-910c-318f6e1c04fe user=SA
+2026-03-06 11:15:08 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-06 11:15:08 - org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-06 11:15:08 - org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-06 11:15:08 - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-06 11:15:08 - o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:0abbe92f-fa5b-406c-910c-318f6e1c04fe]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 0ABBE92F-FA5B-406C-910C-318F6E1C04FE/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-06 11:15:08 - org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-06 11:15:08 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:15:08 - t.u.m.r.model.bridge.BridgeService - Initialized BridgeService with 1 bridges
+2026-03-06 11:15:09 - o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-06 11:15:09 - o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3bc82969-9ee0-4ccf-bcd0-3e1d6bff1d3a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-06 11:15:09 - o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-06 11:15:09 - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-06 11:15:09 - o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-06 11:15:09 - t.u.m.restmote.RestmoteApplication - Started RestmoteApplication in 1.282 seconds (process running for 1.417)
+2026-03-06 11:15:13 - o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-06 11:15:13 - o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-06 11:15:13 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:15:13 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-06 11:15:13 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-06 11:19:51 - t.u.m.restmote.RestmoteApplication - Starting RestmoteApplication using Java 21.0.9 with PID 23117 (/Users/dylan/Desktop/restmote/build/classes/java/main started by dylan in /Users/dylan/Desktop/restmote)
+2026-03-06 11:19:51 - t.u.m.restmote.RestmoteApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-06 11:19:51 - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-06 11:19:51 - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2026-03-06 11:19:51 - o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-06 11:19:51 - o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-03-06 11:19:51 - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-06 11:19:51 - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-06 11:19:52 - o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 343 ms
+2026-03-06 11:19:52 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-06 11:19:52 - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:56f15cc9-d168-42e2-854c-002beb0db399 user=SA
+2026-03-06 11:19:52 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-06 11:19:52 - org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-06 11:19:52 - org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-06 11:19:52 - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-06 11:19:52 - o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:56f15cc9-d168-42e2-854c-002beb0db399]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 56F15CC9-D168-42E2-854C-002BEB0DB399/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-06 11:19:52 - org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-06 11:19:52 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:19:52 - t.u.m.r.model.bridge.BridgeService - Initialized BridgeService with 1 bridges
+2026-03-06 11:19:52 - o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-06 11:19:52 - o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e4728605-a4af-4780-8076-c5642240fe03
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-06 11:19:52 - o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-06 11:19:52 - o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-03-06 11:19:52 - o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-06 11:19:52 - t.u.m.restmote.RestmoteApplication - Started RestmoteApplication in 1.231 seconds (process running for 1.347)
+2026-03-06 11:19:56 - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-06 11:19:56 - o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-06 11:19:56 - o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-06 11:35:20 - o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-06 11:35:20 - o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-06 11:35:20 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:35:20 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-06 11:35:20 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-06 11:48:45 - t.u.m.r.RestmoteApplicationTests - Starting RestmoteApplicationTests using Java 21.0.9 with PID 23512 (started by dylan in /Users/dylan/Desktop/restmote)
+2026-03-06 11:48:45 - t.u.m.r.RestmoteApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-03-06 11:48:45 - o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-06 11:48:45 - o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2026-03-06 11:48:46 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-06 11:48:46 - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:b5e9154f-b250-429c-9e55-65505c100384 user=SA
+2026-03-06 11:48:46 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-06 11:48:46 - org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-06 11:48:46 - org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-06 11:48:46 - o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-06 11:48:46 - o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:b5e9154f-b250-429c-9e55-65505c100384]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: B5E9154F-B250-429C-9E55-65505C100384/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-06 11:48:46 - org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-06 11:48:46 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:48:46 - o.s.w.c.s.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiKeyFilter': Injection of autowired dependencies failed
+2026-03-06 11:48:46 - o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06 11:48:46 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-06 11:48:46 - com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-06 11:48:46 - o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-06 11:48:46 - o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiKeyFilter': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:499)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1446)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$2(SpringBootContextLoader.java:156)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1465)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:605)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:156)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:115)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
+	at org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:214)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:210)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:93)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:41)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:40)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.processAllTestClasses(JUnitPlatformTestDefinitionProcessor.java:172)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.access$000(JUnitPlatformTestDefinitionProcessor.java:121)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor.stop(JUnitPlatformTestDefinitionProcessor.java:114)
+	at org.gradle.api.internal.tasks.testing.SuiteTestDefinitionProcessor.stop(SuiteTestDefinitionProcessor.java:64)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:195)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'API_KEY' in value "${API_KEY}" <-- "${security.api-key}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:296)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:129)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:96)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:286)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:257)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:184)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:959)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1672)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:764)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:748)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	... 120 common frames omitted
+2026-03-06 11:48:46 - o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [to.us.mnmzc.restmote.RestmoteApplicationTests@7ec176da]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@99774ec testClass = to.us.mnmzc.restmote.RestmoteApplicationTests, locations = [], classes = [to.us.mnmzc.restmote.RestmoteApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.webmvc.test.autoconfigure.WebDriverContextCustomizer@78b236a0, org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@60e9df3c, org.springframework.boot.test.context.PropertyMappingContextCustomizer@0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@288a4658, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6c8a68c1, org.springframework.boot.web.server.context.SpringBootTestRandomPortContextCustomizer@5f8890c2, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@6d8a173f], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:195)
+	at org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:214)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:210)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:93)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:41)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:40)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.processAllTestClasses(JUnitPlatformTestDefinitionProcessor.java:172)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.access$000(JUnitPlatformTestDefinitionProcessor.java:121)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor.stop(JUnitPlatformTestDefinitionProcessor.java:114)
+	at org.gradle.api.internal.tasks.testing.SuiteTestDefinitionProcessor.stop(SuiteTestDefinitionProcessor.java:64)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:195)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiKeyFilter': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:499)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1446)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$2(SpringBootContextLoader.java:156)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1465)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:605)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:156)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:115)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
+	... 96 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'API_KEY' in value "${API_KEY}" <-- "${security.api-key}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:296)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:129)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:96)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:286)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:257)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:184)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:959)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1672)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:764)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:748)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	... 120 common frames omitted
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 41b1cf0d-c004-4590-91d2-1fb6ecb28346
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 06070f2e-364b-484a-883b-2a092d37d05c
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 81e5e3b7-c0b7-481d-8a4b-4684a44d1f10
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 564c8368-2233-4eb1-a6cc-703ad4c20e27
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID b4ddedc5-9c3b-40b2-b2b7-7a1956df83b7
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID d67725d0-b259-4dba-bf53-186683d012fe
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 345d89ca-3cd2-40f6-ad70-d0547f6a2164
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID b2e8ab9e-8ec6-4865-97c8-27a75bb8a57f
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID e6a8150e-cf76-4a6b-adf5-8500011630b9
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID e8e2b377-ddd7-48be-b4c1-9785948058ad
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Attempted to register session with ID e8e2b377-ddd7-48be-b4c1-9785948058ad, but it is already registered
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 57ebaab5-b07b-409b-b4bf-a1de17ee0e55
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID a136834d-e150-46a0-a3c7-808188725d6b
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 33607ece-d0a8-44f7-ad3a-2eb8fbe1bebb
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 2ec0d65d-b292-4422-a71e-a57c9762fea4
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID df831c74-8490-4a19-95d7-3e5e6f46ba59
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 12082db8-87ce-4c85-a4ae-4b2db80d4ab9
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Unregistered receiver session with ID 12082db8-87ce-4c85-a4ae-4b2db80d4ab9
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 0cee98b2-e241-4fd0-9d5b-29933914e788
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Unregistered receiver session with ID 0cee98b2-e241-4fd0-9d5b-29933914e788
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Attempted to unregister session with ID 0cee98b2-e241-4fd0-9d5b-29933914e788, but it was not found
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 67c3a1ae-9b42-4512-b10e-1dd97c64d429
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Unregistered receiver session with ID 67c3a1ae-9b42-4512-b10e-1dd97c64d429
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID b3b2bd1d-65c6-431e-95d3-047c4cddc3de
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Unregistered receiver session with ID b3b2bd1d-65c6-431e-95d3-047c4cddc3de
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 743d2db0-60df-40bf-bde1-b83130ecfc8b
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 585b848a-d1f6-4776-b2be-5afac638bd17
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Registered receiver session with ID 0bc9c87c-e1a1-45dc-8f6d-1d7185fa3fef
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Unregistered receiver session with ID 585b848a-d1f6-4776-b2be-5afac638bd17
+2026-03-06 11:48:46 - t.u.m.r.m.receiver.ReceiverRegistry - Attempted to unregister session with ID 02b71004-fb32-4871-b851-15a71edc771c, but it was not found
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Attempted to unregister transmitter with name missing, but it was not found
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Unregistered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name beta
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Unregistered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Attempted to unregister transmitter with name alpha, but it was not found
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name beta
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name gamma
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Unregistered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name beta
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name gamma
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Unregistered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Attempted to register transmitter with name alpha, but it already exists
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name alpha
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-0
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-1
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-2
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-3
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-4
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-5
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-6
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-7
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-8
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-9
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-10
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-11
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-12
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-13
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-14
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-15
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-16
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-17
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-18
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-19
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-20
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-21
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-22
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-23
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-24
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-25
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-26
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-27
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-28
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-29
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-30
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-31
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-32
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-33
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-34
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-35
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-36
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-37
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-38
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-39
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-40
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-41
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-42
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-43
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-44
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-45
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-46
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-47
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-48
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-49
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-50
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-51
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-52
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-53
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-54
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-55
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-56
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-57
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-58
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-59
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-60
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-61
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-62
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-63
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-64
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-65
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-66
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-67
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-68
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-69
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-70
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-71
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-72
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-73
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-74
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-75
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-76
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-77
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-78
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-79
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-80
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-81
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-82
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-83
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-84
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-85
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-86
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-87
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-88
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-89
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-90
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-91
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-92
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-93
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-94
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-95
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-96
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-97
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-98
+2026-03-06 11:48:46 - t.u.m.r.m.t.TransmitterService - Registered transmitter with name name-99

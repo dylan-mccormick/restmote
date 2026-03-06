@@ -1,7 +1,14 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '4.0.3'
-	id 'io.spring.dependency-management' version '1.1.7'
+    // Spring
+    id 'java'
+    id 'org.springframework.boot' version '4.0.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+    // Lombok plugin for annotation processing
+    id("io.freefair.lombok") version "9.2.0"
+    // Error prone
+    id("net.ltgt.errorprone") version "5.1.0"
+    // spotless
+    id("com.diffplug.spotless") version "8.3.0"
 }
 
 group = 'to.us.mnmzc'
@@ -9,29 +16,110 @@ version = '0.0.1-SNAPSHOT'
 description = 'Links transmitters and receivers via a bridge.'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-h2console'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-	implementation 'org.springframework.boot:spring-boot-starter-websocket'
-	runtimeOnly 'com.h2database:h2'
-	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-websocket-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-h2console'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-websocket-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    errorprone "com.google.errorprone:error_prone_core:2.48.0"
+    errorprone "com.uber.nullaway:nullaway:0.13.1"
+
+    implementation "org.jspecify:jspecify:1.0.0"
+
+    implementation(platform("me.paulschwarz:spring-dotenv-bom:5.1.0"))
+    developmentOnly "me.paulschwarz:springboot4-dotenv"
+}
+
+// Spotless configuration for code formatting
+spotless {
+    java {
+        // Remove unused imports first
+        removeUnusedImports()
+
+        // Use Google Java Format for code formatting
+        // Note: googleJavaFormat will reorder imports, but we fix that below
+        googleJavaFormat('1.23.0')
+
+        // Configure import order AFTER formatter to override Google Java Format's import ordering
+        // Order matches Checkstyle exactly: /^java\./, javax, org, com, net, app
+        // Blank lines between groups (matches Checkstyle separated=true)
+        // Static imports at top (matches Checkstyle option=top)
+        // This MUST come after googleJavaFormat to fix import order
+        importOrder('java', 'javax', '', 'org', '', 'com', '', 'net', '', 'app')
+
+        // Trim trailing whitespace
+        trimTrailingWhitespace()
+
+        // End files with a newline
+        endWithNewline()
+
+        // Exclude generated files
+        targetExclude(
+                'build/**',
+                '**/build/**',
+                '**/generated/**'
+        )
+    }
+
+    // Format other file types
+    format 'misc', {
+        target '*.gradle', '*.md', '.gitignore'
+        trimTrailingWhitespace()
+        leadingTabsToSpaces(4)
+        endWithNewline()
+    }
+}
+
+test {
+    testLogging {
+        events "failed"
+        showStandardStreams = true  // Enable to see debug logs from logback
+        exceptionFormat = "full"
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+    }
+
+    // Show counts of tests passed, failed, and skipped
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "\nTests: ${result.testCount}, Passed: ${result.successfulTestCount}, Failed: ${result.failedTestCount}, Skipped: ${result.skippedTestCount}"
+        }
+    }
+}
+
+import net.ltgt.gradle.errorprone.CheckSeverity
+
+tasks.withType(JavaCompile) {
+    options.errorprone {
+        check("NullAway", CheckSeverity.ERROR)
+        option("NullAway:AnnotatedPackages", "com.uber")
+    }
+    // Include to disable NullAway on test code
+    if (name.toLowerCase().contains("test")) {
+        options.errorprone {
+            disable("NullAway")
+        }
+    }
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
