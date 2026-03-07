@@ -35,32 +35,33 @@ public class TransmitterService {
     }
 
     /**
-     * Registers the given transmitter. The transmitter must have a unique name.
-     * @param transmitter The transmitter to register. Must have a unique name.
+     * Registers the given transmitter. The transmitter must have a unique id.
+     * @param transmitter The transmitter to register. Must have a unique id.
+     * @throws IllegalStateException if a transmitter with the same id is already registered.
      */
     public void register(Transmitter transmitter) {
-        if (transmitters.stream().anyMatch(t -> t.getName().equalsIgnoreCase(transmitter.getName()))) {
-            log.warn("Attempted to register transmitter with name {}, but it already exists", transmitter.getName());
-            throw new IllegalStateException("Transmitter with name " + transmitter.getName() + " already exists");
+        if (transmitters.stream().anyMatch(t -> t.getId().equalsIgnoreCase(transmitter.getId()))) {
+            log.warn("Attempted to register transmitter with id {}, but it already exists", transmitter.getId());
+            throw new IllegalStateException("Transmitter with id " + transmitter.getId() + " already exists");
         }
 
         transmitters.add(transmitter);
-        log.info("Registered transmitter with name {}", transmitter.getName());
+        log.info("Registered transmitter with id {}", transmitter.getId());
     }
 
     /**
-     * Unregisters the transmitter with the given name. The transmitter must be registered for it to be unregistered.
-     * @param name The name of the transmitter to unregister. The transmitter must be registered for it to be unregistered.
-      * @throws IllegalStateException if a transmitter with the given name is not registered.
+     * Unregisters the transmitter with the given id. The transmitter must be registered for it to be unregistered.
+     * @param id The id of the transmitter to unregister. The transmitter must be registered for it to be unregistered.
+      * @throws IllegalStateException if a transmitter with the given id is not registered.
      */
-    public void unregister(String name) {
-        if (transmitters.removeIf(t -> t.getName().equalsIgnoreCase(name))) {
-            log.info("Unregistered transmitter with name {}", name);
+    public void unregister(String id) {
+        if (transmitters.removeIf(t -> t.getId().equalsIgnoreCase(id))) {
+            log.info("Unregistered transmitter with id {}", id);
             return;
         }
 
-        log.warn("Attempted to unregister transmitter with name {}, but it was not found", name);
-        throw new IllegalStateException("Transmitter with name " + name + " is not registered");
+        log.warn("Attempted to unregister transmitter with id {}, but it was not found", id);
+        throw new IllegalStateException("Transmitter with id " + id + " is not registered");
     }
 
     /**
