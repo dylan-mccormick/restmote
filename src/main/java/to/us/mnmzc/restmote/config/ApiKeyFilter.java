@@ -7,10 +7,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Filter that checks for the presence of an API key in the request header and validates it.
@@ -36,11 +39,19 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         String passedKey = request.getHeader("X-API-Key");
         // if (passedKey == null) { passedKey = request.getParameter("apiKey"); } // allow passing the API key as a query parameter for testing
 
+        logger.debug(passedKey);
+        logger.debug(apiKey);
+
         if (passedKey == null || !passedKey.equals(apiKey)) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Unauthorized: Invalid API key");
             return;
         }
+
+        // Set authentication in the security context
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken("api-key-user", null, new ArrayList<>());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         filterChain.doFilter(request, response);
     }
