@@ -39,9 +39,6 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         String passedKey = request.getHeader("X-API-Key");
         // if (passedKey == null) { passedKey = request.getParameter("apiKey"); } // allow passing the API key as a query parameter for testing
 
-        logger.debug(passedKey);
-        logger.debug(apiKey);
-
         if (passedKey == null || !passedKey.equals(apiKey)) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Unauthorized: Invalid API key");

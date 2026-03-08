@@ -1,6 +1,10 @@
 package to.us.mnmzc.restmote.model.message.filter;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.List;
 
@@ -12,7 +16,13 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @ToString
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonDeserialize(builder = Filter.FilterBuilder.class)
 public class Filter {
-    @Getter final private String name;
-    @Getter final private List<FilterCondition> conditions;
+    @Getter @JsonProperty("name") final private String name;
+    @Getter @JsonProperty("conditions") final private List<FilterCondition> conditions;
+
+    @JsonPOJOBuilder(withPrefix = "")
+    public static class FilterBuilder {
+    }
 }

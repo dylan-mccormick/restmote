@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -43,6 +44,10 @@ public class ReceiverRegistry {
 
         log.warn("Attempted to unregister session with ID {}, but it was not found", sessionId);
         throw new IllegalStateException("Session with ID " + sessionId + " is not registered");
+    }
+
+    public Optional<ReceiverSession> getSessionById(String sessionId) {
+        return sessions.stream().filter(s -> s.getId().equals(sessionId)).findFirst();
     }
 
     /**

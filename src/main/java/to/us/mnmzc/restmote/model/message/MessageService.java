@@ -23,7 +23,7 @@ public class MessageService {
     @Autowired ReceiverRegistry receiverRegistry;
 
     public void routeMessage(Message message) {
-        log.trace("Routing message with transmitter {} and attributes {}", message.getSource(), message.getAttributes());
+        log.debug("Routing message with transmitter {} and attributes {}", message.getSource(), message.getAttributes());
         List<Bridge> correspondingBridges = bridgeService.getBridgesByIds(message.getSource().getBridgeIds());
         log.trace("Found {} corresponding bridges.", correspondingBridges.size());
 

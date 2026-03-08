@@ -20,7 +20,7 @@ public class ReceiverSession {
     @Builder.Default
     @Getter private final String id = UUID.randomUUID().toString();
     @Getter private final List<String> bridgeIds;
-    @Getter private final Map<String, Object> attributes;
+    @Setter @Getter private Map<String, Object> attributes;
     @Getter private final ReceiverStrategy strategy;
-    @Getter @Nullable private final Filter filter;
+    @Setter @Getter @Nullable private Filter filter;
 }
