@@ -1,6 +1,10 @@
 package to.us.mnmzc.restmote.model.message.filter;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -31,6 +35,16 @@ public enum FilterOperator {
      */
     public boolean test(Object actual, Object expected) {
         return predicate.evaluate(actual, expected);
+    }
+
+    @JsonCreator
+    public static FilterOperator fromJson(String value) {
+        return FilterOperator.valueOf(value.toUpperCase(Locale.ROOT));
+    }
+
+    @JsonValue
+    public String toJson() {
+        return name();
     }
 
     private static double toDouble(Object val) {
