@@ -1,17 +1,19 @@
 package to.us.mnmzc.restmote.model.message.filter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
+
 import lombok.*;
 import tools.jackson.databind.annotation.JsonDeserialize;
 import tools.jackson.databind.annotation.JsonPOJOBuilder;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Represents a filter rule. This is used to determine where messages should be routed to.
- * Messages may pass optional attributes. Each bridge will check its filters against the message attributes.
- * Receivers may also have attributes. Bridges will check the receiver attributes against another set of filters.
+ * Represents a filter rule. This is used to determine where messages should be routed to. Messages
+ * may pass optional attributes. Each bridge will check its filters against the message attributes.
+ * Receivers may also have attributes. Bridges will check the receiver attributes against another
+ * set of filters.
  */
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
@@ -19,10 +21,14 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(builder = Filter.FilterBuilder.class)
 public class Filter {
-    @Getter @JsonProperty("name") final private String name;
-    @Getter @JsonProperty("conditions") final private List<FilterCondition> conditions;
+  @Getter
+  @JsonProperty("name")
+  private final String name;
 
-    @JsonPOJOBuilder(withPrefix = "")
-    public static class FilterBuilder {
-    }
+  @Getter
+  @JsonProperty("conditions")
+  private final List<FilterCondition> conditions;
+
+  @JsonPOJOBuilder(withPrefix = "")
+  public static class FilterBuilder {}
 }

@@ -1,22 +1,23 @@
 package to.us.mnmzc.restmote.model.bridge;
 
-import lombok.*;
-import org.jspecify.annotations.Nullable;
-import to.us.mnmzc.restmote.model.message.filter.Filter;
-
 import java.util.UUID;
 
+import lombok.*;
+import to.us.mnmzc.restmote.model.message.filter.Filter;
+
+import org.jspecify.annotations.Nullable;
+
 /**
- * JPA entity representing a bridge. Has an ID, name, auth token, and its list of filter rules.
+ * JPA entity representing a bridge. Has an ID, name, auth token (future), and its list of filter
+ * rules.
  */
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @ToString
 public class Bridge {
-    @Builder.Default
-    @Getter final private String id = UUID.randomUUID().toString();
-    @Getter final private String name;
-    @Getter final private String authToken;
+  @Builder.Default @Getter private final String id = UUID.randomUUID().toString();
+  @Getter private final String name;
+  // @Getter private final String authToken;
 
-    @Getter @Nullable final private Filter filter;
+  @Getter @Nullable private final Filter filter;
 }
